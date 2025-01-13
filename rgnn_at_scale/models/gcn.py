@@ -1,3 +1,4 @@
+import collections.abc
 import collections
 from typing import Callable, Dict, Optional, Sequence, Tuple, Union
 from torchtyping import TensorType, patch_typeguard
@@ -149,7 +150,7 @@ class GCN(nn.Module):
                  n_chunks: int = 8,
                  **kwargs):
         super().__init__()
-        if not isinstance(n_filters, collections.Sequence):
+        if not isinstance(n_filters, collections.abc.Sequence):
             self.n_filters = [n_filters]
         else:
             self.n_filters = list(n_filters)
